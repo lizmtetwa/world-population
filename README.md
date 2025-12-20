@@ -11,3 +11,6 @@ Analysis of global population trends (2015–2023) with visualizations showing c
 
 ### Population Comparison: Selected Countries
 ![Population Comparison](images/population_country_comparison.png)
+
+![Population Distribution 2023](./images/population_distribution_2023.png)
+
