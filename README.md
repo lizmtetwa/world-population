@@ -17,3 +17,40 @@ your-repo/
 │── pop_map_1.html
 [Interactive Population Map](interactive_population.html)  
 [Population Comparison Map](pop_map_1.html)
+
+## Interactive Visualizations
+
+[Interactive Population Map](interactive/interactive_population.html)  
+[Population Comparison Map](interactive/pop_map_1.html)
+
+# World Population Analysis
+
+This project examines global population trends from 2015 to 2023, focusing on distribution, growth, and comparisons across key countries.
+
+The 2023 population distribution map highlights regions with the largest populations, while trends from 2015–2023 reveal shifts in density, especially in Asia and Africa. A dedicated visualization of Europe’s population shows steady growth with country-level differences, reflecting demographic stability and aging populations.
+
+Comparisons across China, India, Indonesia, Nigeria, and the United States illustrate varying growth rates. India and Nigeria show rapid increases, China and the US display slower growth, and Indonesia demonstrates moderate, steady growth.
+
+Two interactive maps allow users to explore data dynamically—zooming, filtering, and viewing statistics by region—adding engagement and depth beyond static visualizations.
+
+---
+
+## Population Visualizations
+
+### Population Distribution (2023)
+![Population Distribution](population_distribution_2023.png)
+
+### Population Growth in Europe
+![Population Growth Europe](population_growth_europe.png)
+
+---
+
+## Interactive Visualizations
+
+[Interactive Population Map](interactive/interactive_population.html)  
+[Population Comparison Map](interactive/pop_map_1.html)
+
+
+
+
+
