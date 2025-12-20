@@ -4,13 +4,13 @@ Analysis of global population trends (2015–2023) with visualizations showing c
 ## World Population Analysis
 
 ### Population Distribution (2023)
-![Population Distribution](images/population_distribution_2023.png)
+![population Distribution](images/population_distribution_2023.png)
 
 ### Population Growth in Europe
-![Population Growth Europe](images/population_growth_europe.png)
+![population Growth Europe](images/population_growth_europe.png)
 
 ### Population Comparison: Selected Countries
-![Population Comparison](images/population_country_comparison.png)
+![population Comparison](images/population_country_comparison.png)
 
-![Population Distribution 2023](./images/population_distribution_2023.png)
+![population Distribution 2023](./images/population_distribution_2023.png)
 
