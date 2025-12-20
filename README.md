@@ -13,5 +13,5 @@ Analysis of global population trends (2015–2023) with visualizations showing c
 
 your-repo/
 │── README.md
-│── interactive_population.html
+│── interacctive_population.html
 │── pop_map_1.html
