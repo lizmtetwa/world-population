@@ -15,3 +15,5 @@ your-repo/
 │── README.md
 │── interacctive_population.html
 │── pop_map_1.html
+[Interactive Population Map](interactive_population.html)  
+[Population Comparison Map](pop_map_1.html)
