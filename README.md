@@ -1,4 +1,4 @@
-# world-population
+# World-population
 Analysis of global population trends (2015–2023) with visualizations showing country distributions, European growth, and comparisons of China, India, Indonesia, Nigeria, and the US, highlighting demographic shifts and growth patterns worldwide.
 ## World Population Analysis
 
@@ -53,7 +53,13 @@ Two interactive maps allow users to explore data dynamically-zooming, filtering,
 - **Population trends influence economics, infrastructure, and resource planning**, highlighting regions that may face demographic pressures or opportunities.  
 - Interactive maps provide a detailed, user-driven exploration of data, helping identify patterns not easily seen in static charts.
 
----
+Technologies Used
+Python
+Pandas, NumPy for data manipulation
+Matplotlib, Seaborn for visualization
+Jupyter Notebook for analysis
+Tableue
+
 
 ## Conclusion
 
