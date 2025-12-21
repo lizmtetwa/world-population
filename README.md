@@ -42,7 +42,7 @@ The 2023 population distribution map highlights regions with the largest populat
 
 Comparisons across China, India, Indonesia, Nigeria, and the United States illustrate varying growth rates. India and Nigeria show rapid increases, China and the US display slower growth, and Indonesia demonstrates moderate, steady growth.
 
-Two interactive maps allow users to explore data dynamically-zooming, filtering, and viewing statistics by region—adding engagement and depth beyond static visualizations.
+Two interactive maps allow users to explore data dynamically-zooming, filtering, and viewing statistics by region-adding engagement and depth beyond static visualizations.
 
 ---
 
