@@ -41,8 +41,19 @@ No significant data quality issues were observed during inspection. The dataset 
 
 3. Analysis Preparation
 
-The data was used in its original form to preserve accuracy and consistency in population trend analysis.
+The data was used in its original form to preserve accuracy and consistency in population trend analysis.  
 
+## Exploratory Data Analysis
+
+Exploratory Data Analysis was carried out to understand global population trends and regional differences.
+
+Population values were examined across countries to identify the most and least populated regions.
+
+Trends over time were analysed to observe population growth patterns.
+
+Regional comparisons were made to highlight differences between continents and economic regions.
+
+Visual exploration helped identify countries with rapid growth versus more stable populations.
 
 
 ### Population Distribution (2023)
@@ -96,12 +107,13 @@ Two interactive maps allow users to explore data dynamically-zooming, filtering,
 - **Population trends influence economics, infrastructure, and resource planning**, highlighting regions that may face demographic pressures or opportunities.  
 - Interactive maps provide a detailed, user-driven exploration of data, helping identify patterns not easily seen in static charts.
 
-Technologies Used
+## Technologies Used
 Python
 Pandas, NumPy for data manipulation
 Matplotlib, Seaborn for visualization
 Jupyter Notebook for analysis
 Tableue
+Excel
 
 
 ## Conclusion
