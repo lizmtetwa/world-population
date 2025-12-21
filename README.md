@@ -2,6 +2,49 @@
 Analysis of global population trends (2015–2023) with visualizations showing country distributions, European growth, and comparisons of China, India, Indonesia, Nigeria, and the US, highlighting demographic shifts and growth patterns worldwide.
 ## World Population Analysis
 
+## Business Problem
+
+Understanding population growth and distribution is essential for planning in areas such as resource allocation, infrastructure development, and economic policy.
+The objective of this analysis is to explore global population trends over time and compare population sizes across regions and countries.
+
+This analysis aims to highlight growth patterns and regional differences that can inform long-term strategic planning and policy decisions.
+
+## Dataset Description
+
+The dataset used in this project contains global population data for multiple countries across several years.
+
+Each record represents a country, with population figures recorded for different time periods.
+
+## Key features include:
+
+Country / Region
+
+Population counts by year
+
+Growth indicators
+
+Geographic classification
+
+The dataset enables comparison of population sizes and growth trends across countries and regions.
+
+## Data Cleaning
+
+Before analysis, the dataset was reviewed to ensure it was suitable for exploration and visualisation.
+
+1. Initial Inspection
+
+The dataset was examined to understand its structure, columns, and time-based variables.
+
+2. Data Readiness
+
+No significant data quality issues were observed during inspection. The dataset did not require removal of records or transformation prior to analysis.
+
+3. Analysis Preparation
+
+The data was used in its original form to preserve accuracy and consistency in population trend analysis.
+
+
+
 ### Population Distribution (2023)
 ![Population Distribution](population_distribution_2023.png)
 
