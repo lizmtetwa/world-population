@@ -81,17 +81,6 @@ my-repo/
 
 This project examines global population trends from 2015 to 2023, focusing on distribution, growth, and comparisons across key countries.
 
-The 2023 population distribution map highlights regions with the largest populations, while trends from 2015-2023 reveal shifts in density, especially in Asia and Africa. A dedicated visualization of Europe’s population shows steady growth with country-level differences, reflecting demographic stability and aging populations.
-
-Comparisons across China, India, Indonesia, Nigeria, and the United States illustrate varying growth rates. India and Nigeria show rapid increases, China and the US display slower growth, and Indonesia demonstrates moderate, steady growth.
-
-Two interactive maps allow users to explore data dynamically-zooming, filtering, and viewing statistics by region-adding engagement and depth beyond static visualizations.
-
-
-# World Population Analysis
-
-This project examines global population trends from 2015 to 2023, focusing on distribution, growth, and comparisons across key countries.
-
 The 2023 population distribution map highlights regions with the largest populations, while trends from 2015–2023 reveal shifts in density, especially in Asia and Africa. A dedicated visualization of Europe’s population shows steady growth with country-level differences, reflecting demographic stability and aging populations.
 
 Comparisons across China, India, Indonesia, Nigeria, and the United States illustrate varying growth rates. India and Nigeria show rapid increases, China and the US display slower growth, and Indonesia demonstrates moderate, steady growth.
