@@ -68,6 +68,8 @@ my-repo/
 │── README.md
     - [Main Map](https://lizmtetwa.github.io/world-population/)
     - [Alternative Map](https://lizmtetwa.github.io/world-population/interactive_population.html)
+- Main Map: https://lizmtetwa.github.io/world-population/
+- Alternative Map: https://lizmtetwa.github.io/world-population/interactive_population.html
 
 
 
