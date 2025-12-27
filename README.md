@@ -68,9 +68,11 @@ Visual exploration helped identify countries with rapid growth versus more stabl
 my-repo/
 │── README.md
 │── interacctive_population.html
-│── pop_map_1.html
+│── Main Map](https://lizmtetwa.github.io/world-population/)
+
 [Interactive Population Map](interactive_population.html)  
-[Population Comparison Map](pop_map_1.html
+[Population Comparison Map (https://lizmtetwa.github.io/world-population/)
+
 
 <script src="script.js"></script>
 
