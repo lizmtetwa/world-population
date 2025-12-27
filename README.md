@@ -52,7 +52,6 @@ Population values were examined across countries to identify the most and least 
 Trends over time were analysed to observe population growth patterns.
 
 Regional comparisons were made to highlight differences between continents and economic regions.
-
 Visual exploration helped identify countries with rapid growth versus more stable populations.
 
 
@@ -68,7 +67,9 @@ Visual exploration helped identify countries with rapid growth versus more stabl
 my-repo/
 │── README.md
 │── interacctive_population.html
-│── Main Map](https://lizmtetwa.github.io/world-population/)
+    [Main Map](https://lizmtetwa.github.io/world-population/)
+    [Main Map](index.html)
+
 
 [Interactive Population Map](interactive_population.html)  
 [Population Comparison Map (https://lizmtetwa.github.io/world-population/)
