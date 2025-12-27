@@ -77,6 +77,11 @@ my-repo/
 <link rel="stylesheet" href="style.css">
 d3.json("data.json").then(...);
 
+- **Main Map**  
+  👉 https://lizmtetwa.github.io/world-population/
+
+- **Alternative Map**  
+  👉 https://lizmtetwa.github.io/world-population/interactive_population.html
 
 
 
