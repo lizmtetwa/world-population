@@ -73,9 +73,26 @@ my-repo/
 [Population Comparison Map](pop_map_1.html)
 
 ## Interactive Visualizations
+## 🌍 World Population Interactive Maps
 
-[Interactive Population Map](interactive/interactive_population.html)  
-[Population Comparison Map](interactive/pop_map_1.html)
+This project contains interactive data visualisations exploring global population distribution.
+
+### 🔗 Live Maps
+- **Main World Population Map**  
+  👉 https://lizmtetwa.github.io/world-population/
+
+- **Alternative Interactive Population View**  
+  👉 https://lizmtetwa.github.io/world-population/interactive_population.html
+
+### 🛠️ Tools & Technologies
+- HTML
+- JavaScript
+- Data Visualisation
+- GitHub Pages
+
+### 📂 Key Files
+- `index.html` – Main interactive world population map
+- `interactive_population.html` – Alternative interactive population visualisation
 
 # World Population Analysis
 
