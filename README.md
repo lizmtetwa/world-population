@@ -77,12 +77,9 @@ my-repo/
 
 This project contains interactive data visualisations exploring global population distribution.
 
-### 🔗 Live Maps
-- **Main World Population Map**  
-  👉 https://lizmtetwa.github.io/world-population/
+https://lizmtetwa.github.io/world-population/
+https://lizmtetwa.github.io/world-population/interactive_population.html
 
-- **Alternative Interactive Population View**  
-  👉 https://lizmtetwa.github.io/world-population/interactive_population.html
 
 ### 🛠️ Tools & Technologies
 - HTML
@@ -90,9 +87,12 @@ This project contains interactive data visualisations exploring global populatio
 - Data Visualisation
 - GitHub Pages
 
-### 📂 Key Files
-- `index.html` – Main interactive world population map
-- `interactive_population.html` – Alternative interactive population visualisation
+- 🌍 Main World Population Map  
+  https://lizmtetwa.github.io/world-population/
+
+- 🌐 Alternative Interactive Population View  
+  https://lizmtetwa.github.io/world-population/interactive_population.html
+
 
 # World Population Analysis
 
