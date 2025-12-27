@@ -68,8 +68,18 @@ my-repo/
 │── README.md
     - [Main Map](https://lizmtetwa.github.io/world-population/)
     - [Alternative Map](https://lizmtetwa.github.io/world-population/interactive_population.html)
-- Main Map: https://lizmtetwa.github.io/world-population/
-- Alternative Map: https://lizmtetwa.github.io/world-population/interactive_population.html
+
+This project contains interactive data visualisations exploring global population distribution.
+
+### 🔗 Live Maps
+- **Main Map**  
+  👉 https://lizmtetwa.github.io/world-population/
+
+- **Alternative Map**  
+  👉 https://lizmtetwa.github.io/world-population/interactive_population.html
+
+
+- 
 
 
 
