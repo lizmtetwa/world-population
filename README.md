@@ -116,7 +116,33 @@ https://lizmtetwa.github.io/world-population/interactive_population.html
 - HTML
 - JavaScript
 - Data Visualisation
-- GitHub Pages
+- GitHub Pages🌍 World Population Interactive Maps
+
+This project contains interactive data visualisations exploring global population distribution.
+
+🔗 Live Maps
+
+Main Map 👉 https://lizmtetwa.github.io/world-population/
+
+Alternative Map 👉 https://lizmtetwa.github.io/world-population/interactive_population.html
+
+🛠️ Tools & Technologies
+
+HTML
+
+JavaScript
+
+Data Visualisation
+
+GitHub Pages
+
+📂 Key Files
+
+index.html – Main interactive world population map
+
+interactive_population.html – Alternative interactive population visualisation
+
+
 
 - 🌍 Main World Population Map  
   https://lizmtetwa.github.io/world-population/
