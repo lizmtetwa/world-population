@@ -70,7 +70,16 @@ my-repo/
 │── interacctive_population.html
 │── pop_map_1.html
 [Interactive Population Map](interactive_population.html)  
-[Population Comparison Map](pop_map_1.html)
+[Population Comparison Map](pop_map_1.html
+
+<script src="script.js"></script>
+
+<link rel="stylesheet" href="style.css">
+d3.json("data.json").then(...);
+
+
+
+
 
 ## Interactive Visualizations
 ## 🌍 World Population Interactive Maps
