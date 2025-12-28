@@ -55,15 +55,6 @@ Regional comparisons were made to highlight differences between continents and e
 Visual exploration helped identify countries with rapid growth versus more stable populations.# Navigate to your repo folder
 cd path/to/world-population
 
-# Remove old file(s)
-git rm "pop_map_1.html"
-git rm "interacctive population.html"  # Only if it still exists
-
-# Commit the deletions
-git commit -m "Remove old/typo files to clean repo"
-
-# Push changes to GitHub
-git push origin main
 
 # World Population Interactive Map
 
