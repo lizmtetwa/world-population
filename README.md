@@ -1,5 +1,21 @@
 # World-population
 Analysis of global population trends (2015–2023) with visualizations showing country distributions, European growth, and comparisons of China, India, Indonesia, Nigeria, and the US, highlighting demographic shifts and growth patterns worldwide.
+
+## About the World Population Interactive Map
+
+The interactive world population map is intended to display country populations on hover.  
+
+**Important Note:**  
+Due to the limitations of GitHub Pages and web security policies (CORS restrictions), the map **cannot fetch external population and GeoJSON data files directly** when hosted here.  
+
+This is why the map currently only displays the heading.  
+
+To view the full interactive map:  
+1. Download the repository and open `interactive_population.html` **locally** in a web browser.  
+2. This allows the browser to access the required data files without restrictions.  
+
+Alternatively, a fully offline version with all country shapes and population data embedded can be created, but it results in a large HTML file (~3–6 MB), which may not be practical to host directly on GitHub Pages.
+
 ## World Population Analysis
 
 ## Business Problem
