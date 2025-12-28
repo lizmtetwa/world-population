@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>World Population Interactive Map</title>
+<title>World Population Map</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.5/dist/leaflet.css"/>
 <style>
   body { margin:0; padding:0; }
@@ -18,10 +18,11 @@
 </style>
 </head>
 <body>
-<h1>World Population Interactive Map</h1>
+<h1>World Population Map</h1>
 <div id="map"></div>
 
 <script src="https://unpkg.com/leaflet@1.9.5/dist/leaflet.js"></script>
+
 <script>
 // Initialize map
 const map = L.map('map').setView([20, 0], 2);
@@ -32,19 +33,90 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
-// Simple info control
+// Info box
 const info = L.control();
 info.onAdd = function() {
   this._div = L.DomUtil.create('div', 'info');
-  this._div.innerHTML = 'Hover over a country';
+  this.update();
   return this._div;
+};
+info.update = function(props) {
+  this._div.innerHTML = props ?
+    `<b>${props.name}</b><br>Population: ${props.population.toLocaleString()}`
+    : 'Hover over a country';
 };
 info.addTo(map);
 
-// Minimal GeoJSON: just a few countries for demo
-const geoData = {
-  "type":"FeatureCollection",
-  "features":[
-    {"type":"Feature","properties":{"name":"Afghanistan"},"geometry":{"type":"Polygon","coordinates":[[[61,11],[62,11],[62,12],[61,12],[61,11]]]}},
-    {"type":"Feature","properties":{"name":"India"},"geometry":{"type":"Polygon","coordinates":[[[77,20],[78,20],[78,21],[77,21],[77,20]]]}},
-    {"type":"Feature","properties":{"name":"United States"},"geometry":{"type":"Polygon","coordinates":[[[-100,40],[-99,]()]()]()
+// Color scale based on population
+function getColor(pop) {
+  return pop > 1000000000 ? '#4B0082' :
+         pop > 500000000  ? '#6A0DAD' :
+         pop > 200000000  ? '#8A2BE2' :
+         pop > 100000000  ? '#9370DB' :
+         pop > 50000000   ? '#BA55D3' :
+         pop > 10000000   ? '#DA70D6' :
+                            '#E6E6FA';
+}
+
+// Style for each country
+function style(feature) {
+  return {
+    fillColor: getColor(feature.properties.population),
+    weight: 1,
+    color: 'white',
+    dashArray: '3',
+    fillOpacity: 0.7
+  };
+}
+
+// Highlight on hover
+function highlightFeature(e) {
+  const layer = e.target;
+  layer.setStyle({weight: 2, color: '#666', fillOpacity: 0.9});
+  info.update(layer.feature.properties);
+}
+function resetHighlight(e) {
+  geojson.resetStyle(e.target);
+  info.update();
+}
+function onEachFeature(feature, layer) {
+  layer.on({mouseover: highlightFeature, mouseout: resetHighlight});
+}
+
+// Minimal population dataset (for demo, add more for full map)
+const populationData = {
+  "Afghanistan": 42500000,
+  "Albania": 2900000,
+  "Algeria": 44900000,
+  "Angola": 36000000,
+  "Argentina": 46000000,
+  "Australia": 26000000,
+  "Austria": 9000000,
+  "Belgium": 11500000,
+  "Brazil": 217000000,
+  "Canada": 39000000,
+  "China": 1415000000,
+  "France": 68000000,
+  "Germany": 84000000,
+  "India": 1412000000,
+  "Japan": 123000000,
+  "Russia": 144000000,
+  "United States": 338000000,
+  "Zimbabwe": 16000000
+};
+
+// Load world GeoJSON and attach population data
+fetch('https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json')
+.then(res => res.json())
+.then(data => {
+    data.features.forEach(f => {
+        f.properties.population = populationData[f.properties.name] || 0;
+    });
+    geojson = L.geoJson(data, {style: style, onEachFeature: onEachFeature}).addTo(map);
+})
+.catch(err => {
+    alert("Map failed to load. Make sure you are online and GitHub Pages can access external files.");
+});
+</script>
+</body>
+</html>
