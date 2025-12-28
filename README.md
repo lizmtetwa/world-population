@@ -145,7 +145,7 @@ d3.json("data.json").then(...);
 This project contains interactive data visualisations exploring global population distribution.
 
 https://lizmtetwa.github.io/world-population/
-https://lizmtetwa.github.io/world-population/interactive_population.html
+
 
 
 ### 🛠️ Tools & Technologies
