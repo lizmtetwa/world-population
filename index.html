@@ -1,82 +1,18 @@
 Add full interactive world population map with all countries
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Interactive World Population Map</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <style>
-    body { margin:0; padding:0; }
-    #map { height: 100vh; width: 100%; }
-    .popup-content { font-size: 14px; }
-  </style>
-</head>
-<body>
-<div id="map"></div>
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-<script>
-  var map = L.map('map').setView([20, 0], 2);
+function getColor(pop) {
+  if (!pop || pop === "Population data not available") return "#ccc"; // grey if missing
+  var n = pop.replace(/[^0-9]/g, ''); // remove letters
+  n = parseInt(n); 
+  if (pop.includes("billion")) n *= 1000; // convert billion -> million
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
-  }).addTo(map);
+  if (n > 500) return "#4B0082";       // deep purple
+  else if (n > 200) return "#6A0DAD";  // purple
+  else if (n > 100) return "#2E8B57";  // dark green
+  else if (n > 50) return "#3CB371";   // medium green
+  else if (n > 20) return "#20B2AA";   // teal
+  else if (n > 10) return "#00CED1";   // cyan
+  else if (n > 1) return "#87CEFA";    // light blue
+  else return "#E0FFFF";               // very light blue
+}
 
-  // Population data for all countries (simplified example, full version has ~200 countries)
-  var populationData = {
-    "Afghanistan":"39 million","Albania":"2.8 million","Algeria":"44 million","Andorra":"77k","Angola":"33 million",
-    "Argentina":"45 million","Armenia":"2.9 million","Australia":"26 million","Austria":"9 million","Azerbaijan":"10 million",
-    "Bahamas":"393k","Bahrain":"1.7 million","Bangladesh":"166 million","Barbados":"287k","Belarus":"9.4 million",
-    "Belgium":"11.5 million","Belize":"397k","Benin":"12 million","Bhutan":"771k","Bolivia":"11.5 million",
-    "Bosnia and Herzegovina":"3.3 million","Botswana":"2.4 million","Brazil":"213 million","Brunei":"437k",
-    "Bulgaria":"6.9 million","Burkina Faso":"22 million","Burundi":"12 million","Cabo Verde":"555k","Cambodia":"16 million",
-    "Cameroon":"27 million","Canada":"38 million","Central African Republic":"5 million","Chad":"17 million","Chile":"19 million",
-    "China":"1.41 billion","Colombia":"51 million","Comoros":"869k","Congo (Congo-Brazzaville)":"5.5 million",
-    "Congo (Congo-Kinshasa)":"95 million","Costa Rica":"5.1 million","Croatia":"4 million","Cuba":"11 million","Cyprus":"1.2 million",
-    "Czechia":"10.7 million","Denmark":"5.9 million","Djibouti":"1 million","Dominica":"72k","Dominican Republic":"11 million",
-    "Ecuador":"17 million","Egypt":"109 million","El Salvador":"6.5 million","Equatorial Guinea":"1.4 million","Eritrea":"3.5 million",
-    "Estonia":"1.3 million","Eswatini":"1.2 million","Ethiopia":"120 million","Fiji":"896k","Finland":"5.5 million","France":"67 million",
-    "Gabon":"2.3 million","Gambia":"2.4 million","Georgia":"3.7 million","Germany":"83 million","Ghana":"32 million",
-    "Greece":"10.5 million","Grenada":"113k","Guatemala":"18 million","Guinea":"13 million","Guinea-Bissau":"2 million",
-    "Guyana":"786k","Haiti":"11.4 million","Honduras":"10 million","Hungary":"9.6 million","Iceland":"372k","India":"1.39 billion",
-    "Indonesia":"276 million","Iran":"85 million","Iraq":"43 million","Ireland":"5.1 million","Israel":"9.3 million",
-    "Italy":"60 million","Jamaica":"2.9 million","Japan":"125 million","Jordan":"10 million","Kazakhstan":"19 million",
-    "Kenya":"55 million","Kiribati":"119k","Kuwait":"4.3 million","Kyrgyzstan":"6.7 million","Laos":"7.5 million",
-    "Latvia":"1.9 million","Lebanon":"6.8 million","Lesotho":"2.1 million","Liberia":"5.1 million","Libya":"6.9 million",
-    "Liechtenstein":"39k","Lithuania":"2.8 million","Luxembourg":"634k","Madagascar":"28 million","Malawi":"20 million",
-    "Malaysia":"33 million","Maldives":"540k","Mali":"21 million","Malta":"514k","Marshall Islands":"59k","Mauritania":"4.5 million",
-    "Mauritius":"1.3 million","Mexico":"128 million","Micronesia":"115k","Moldova":"2.6 million","Monaco":"39k","Mongolia":"3.4 million",
-    "Montenegro":"622k","Morocco":"37 million","Mozambique":"32 million","Myanmar":"55 million","Namibia":"2.5 million",
-    "Nauru":"10k","Nepal":"30 million","Netherlands":"17 million","New Zealand":"5.1 million","Nicaragua":"6.9 million",
-    "Niger":"26 million","Nigeria":"223 million","North Korea":"25 million","North Macedonia":"2.1 million","Norway":"5.4 million",
-    "Oman":"5.3 million","Pakistan":"240 million","Palau":"18k","Palestine":"5.3 million","Panama":"4.5 million",
-    "Papua New Guinea":"9 million","Paraguay":"7.3 million","Peru":"33 million","Philippines":"113 million","Poland":"38 million",
-    "Portugal":"10.3 million","Qatar":"2.9 million","Romania":"19 million","Russia":"146 million","Rwanda":"13 million",
-    "Saint Kitts and Nevis":"53k","Saint Lucia":"183k","Saint Vincent and the Grenadines":"110k","Samoa":"222k",
-    "San Marino":"34k","Sao Tome and Principe":"223k","Saudi Arabia":"36 million","Senegal":"17 million","Serbia":"6.7 million",
-    "Seychelles":"99k","Sierra Leone":"8 million","Singapore":"5.7 million","Slovakia":"5.4 million","Slovenia":"2.1 million",
-    "Solomon Islands":"722k","Somalia":"17 million","South Africa":"60 million","South Korea":"52 million","South Sudan":"11 million",
-    "Spain":"47 million","Sri Lanka":"22 million","Sudan":"45 million","Suriname":"607k","Sweden":"10.5 million","Switzerland":"8.8 million",
-    "Syria":"17 million","Taiwan":"23 million","Tajikistan":"10 million","Tanzania":"63 million","Thailand":"70 million",
-    "Timor-Leste":"1.3 million","Togo":"8.6 million","Tonga":"106k","Trinidad and Tobago":"1.4 million","Tunisia":"12 million",
-    "Turkey":"85 million","Turkmenistan":"6.2 million","Tuvalu":"12k","Uganda":"48 million","Ukraine":"44 million","United Arab Emirates":"10 million",
-    "United Kingdom":"68 million","United States":"331 million","Uruguay":"3.5 million","Uzbekistan":"36 million","Vanuatu":"307k",
-    "Vatican City":"825","Venezuela":"28 million","Vietnam":"100 million","Yemen":"33 million","Zambia":"20 million","Zimbabwe":"16 million"
-  };
-
-  fetch('https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json')
-    .then(response => response.json())
-    .then(data => {
-      L.geoJSON(data, {
-        style: { color: "#555", weight: 1, fillColor: "#ccc", fillOpacity: 0.7 },
-        onEachFeature: function(feature, layer) {
-          var name = feature.properties.name;
-          var pop = populationData[name] || "Population data not available";
-          layer.bindPopup("<div class='popup-content'><strong>" + name + "</strong><br>Population: " + pop + "</div>");
-        }
-      }).addTo(map);
-    });
-</script>
-</body>
-</html>
