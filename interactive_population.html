@@ -22,12 +22,11 @@
 <div id="map"></div>
 
 <script src="https://unpkg.com/leaflet@1.9.5/dist/leaflet.js"></script>
-
 <script>
 // Initialize map
 const map = L.map('map').setView([20, 0], 2);
 
-// Add OpenStreetMap tiles
+// Add OSM tiles
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19,
   attribution: '&copy; OpenStreetMap contributors'
@@ -42,12 +41,12 @@ info.onAdd = function() {
 };
 info.update = function(props) {
   this._div.innerHTML = props ?
-    `<b>${props.name}</b><br>Population: ${props.population.toLocaleString()}`
-    : 'Hover over a country';
+    `<b>${props.name}</b><br>Population: ${props.population.toLocaleString()}` :
+    'Hover over a country';
 };
 info.addTo(map);
 
-// Color scale based on population
+// Color scale
 function getColor(pop) {
   return pop > 1000000000 ? '#4B0082' :
          pop > 500000000  ? '#6A0DAD' :
@@ -57,19 +56,15 @@ function getColor(pop) {
          pop > 10000000   ? '#DA70D6' :
                             '#E6E6FA';
 }
-
-// Style for each country
 function style(feature) {
   return {
-    fillColor: getColor(feature.properties.population),
+    fillColor: getColor(feature.properties.population || 0),
     weight: 1,
     color: 'white',
-    dashArray: '3',
+    dashArray: '2',
     fillOpacity: 0.7
   };
 }
-
-// Highlight on hover
 function highlightFeature(e) {
   const layer = e.target;
   layer.setStyle({weight: 2, color: '#666', fillOpacity: 0.9});
@@ -83,7 +78,7 @@ function onEachFeature(feature, layer) {
   layer.on({mouseover: highlightFeature, mouseout: resetHighlight});
 }
 
-// Minimal population dataset (for demo, add more for full map)
+// Minimal population dataset (you can expand)
 const populationData = {
   "Afghanistan": 42500000,
   "Albania": 2900000,
@@ -105,18 +100,17 @@ const populationData = {
   "Zimbabwe": 16000000
 };
 
-// Load world GeoJSON and attach population data
+// Fetch full world GeoJSON from GitHub and attach population
 fetch('https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json')
 .then(res => res.json())
 .then(data => {
-    data.features.forEach(f => {
-        f.properties.population = populationData[f.properties.name] || 0;
-    });
-    geojson = L.geoJson(data, {style: style, onEachFeature: onEachFeature}).addTo(map);
+  data.features.forEach(f => {
+    f.properties.population = populationData[f.properties.name] || 0;
+  });
+  geojson = L.geoJson(data, {style: style, onEachFeature: onEachFeature}).addTo(map);
 })
-.catch(err => {
-    alert("Map failed to load. Make sure you are online and GitHub Pages can access external files.");
-});
+.catch(err => alert("Failed to load map. Make sure you are online."));
 </script>
 </body>
 </html>
+
