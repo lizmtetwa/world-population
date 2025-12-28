@@ -90,7 +90,20 @@ This project contains interactive data visualisations exploring global populatio
   👉 https://lizmtetwa.github.io/world-population/
 
 - **Alternative Map**  
-  👉 https://lizmtetwa.github.io/world-population/interactive_population.html
+  👉 https://lizmtetwa.github.io/world-population/interactive_population.html<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>World Population Map</title>
+</head>
+<body>
+  <h1>Interactive World Population Map</h1>
+  <p><a href="./interactive_population.html">View Interactive Map</a></p>
+</body>
+</html>
+
+
+  
 
 
 - 
