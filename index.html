@@ -69,3 +69,6 @@ function onEachFeature(feature, layer) {
 }
 
  
+L.geoJson(worldGeoJson, {
+  onEachFeature: onEachFeature
+}).addTo(map);
