@@ -1,74 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>World Population Interactive Map</title>
-
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-  />
-
-  <style>
-    body { margin: 0; font-family: Arial, sans-serif; }
-    h1 { text-align: center; padding: 10px; }
-    #map { height: 90vh; width: 100%; }
-  </style>
+<meta charset="UTF-8">
+<title>World Population Map</title>
 </head>
-
 <body>
+<h1>Interactive World Population Map</h1>
 
-<h1>World Population Interactive Map</h1>
-<div id="map"></div>
+<!-- Embed the map -->
+<iframe 
+    src="https://www.mapsofworld.com/world-maps/world-population-map.html" 
+    width="100%" 
+    height="600" 
+    style="border:none;">
+</iframe>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-<script>
-  var map = L.map('map').setView([20, 0], 2);
-
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap'
-  }).addTo(map);
-
-  var populationData = {
-    "China": "1.41 billion",
-    "India": "1.43 billion",
-    "United States of America": "339 million",
-    "Indonesia": "277 million",
-    "Pakistan": "241 million",
-    "Brazil": "216 million",
-    "Nigeria": "227 million",
-    "Bangladesh": "173 million",
-    "Russia": "146 million",
-    "Mexico": "129 million",
-    "Japan": "124 million",
-    "Ethiopia": "126 million",
-    "Philippines": "117 million",
-    "Egypt": "112 million",
-    "United Kingdom": "67 million",
-    "Germany": "84 million",
-    "France": "65 million",
-    "South Africa": "60 million",
-    "Zimbabwe": "16 million"
-  };
-function onEachFeature(feature, layer) {
-  const country = feature.properties.name;
-  const population = populationData[country];
-
-  let popupContent = `<strong>${country}</strong><br>`;
-
-  if (population) {
-    popupContent += `Population: ${population.toLocaleString()}`;
-  } else {
-    popupContent += `Population: Data not available`;
-  }
-
-  layer.bindTooltip(popupContent, {
-    sticky: true
-  });
-}
-
- 
-L.geoJson(worldGeoJson, {
-  onEachFeature: onEachFeature
-}).addTo(map);
+</body>
+</html>
