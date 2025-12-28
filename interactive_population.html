@@ -25,55 +25,26 @@
 <script>
 // Initialize map
 const map = L.map('map').setView([20, 0], 2);
+
+// Add OpenStreetMap tiles
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19,
   attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
-// Info control
+// Simple info control
 const info = L.control();
 info.onAdd = function() {
   this._div = L.DomUtil.create('div', 'info');
-  this.update();
+  this._div.innerHTML = 'Hover over a country';
   return this._div;
-};
-info.update = function(props) {
-  this._div.innerHTML = props ?
-    `<b>${props.name}</b><br>Population: ${props.population.toLocaleString()}` :
-    'Hover over a country';
 };
 info.addTo(map);
 
-// Color scale
-function getColor(pop) {
-  return pop > 1000000000 ? '#4B0082' :
-         pop > 500000000  ? '#6A0DAD' :
-         pop > 200000000  ? '#8A2BE2' :
-         pop > 100000000  ? '#9370DB' :
-         pop > 50000000   ? '#BA55D3' :
-         pop > 10000000   ? '#DA70D6' :
-                            '#E6E6FA';
-}
-function style(feature) {
-  return {
-    fillColor: getColor(feature.properties.population),
-    weight: 1,
-    opacity: 1,
-    color: 'white',
-    dashArray: '3',
-    fillOpacity: 0.7
-  };
-}
-function highlightFeature(e) {
-  const layer = e.target;
-  layer.setStyle({weight: 2, color: '#666', fillOpacity: 0.9});
-  info.update(layer.feature.properties);
-}
-function resetHighlight(e) {
-  geojson.resetStyle(e.target);
-  info.update();
-}
-function onEachFeature(feature, layer) {
-  layer.on({mouseover:
-
-        
+// Minimal GeoJSON: just a few countries for demo
+const geoData = {
+  "type":"FeatureCollection",
+  "features":[
+    {"type":"Feature","properties":{"name":"Afghanistan"},"geometry":{"type":"Polygon","coordinates":[[[61,11],[62,11],[62,12],[61,12],[61,11]]]}},
+    {"type":"Feature","properties":{"name":"India"},"geometry":{"type":"Polygon","coordinates":[[[77,20],[78,20],[78,21],[77,21],[77,20]]]}},
+    {"type":"Feature","properties":{"name":"United States"},"geometry":{"type":"Polygon","coordinates":[[[-100,40],[-99,]()]()]()
