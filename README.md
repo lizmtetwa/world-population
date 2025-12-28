@@ -1,219 +1,121 @@
-# World-population
-Analysis of global population trends (2015–2023) with visualizations showing country distributions, European growth, and comparisons of China, India, Indonesia, Nigeria, and the US, highlighting demographic shifts and growth patterns worldwide.
+## World Population
 
-## About the World Population Interactive Map
+Analysis of global population trends (2015–2022) with visualizations showing country distributions, European growth, and comparisons of China, India, Indonesia, Nigeria, and the US. This project highlights demographic shifts and growth patterns worldwide.
 
-The interactive world population map is intended to display country populations on hover.  
+About the World Population Interactive Map
 
-**Important Note:**  
-Due to the limitations of GitHub Pages and web security policies (CORS restrictions), the map **cannot fetch external population and GeoJSON data files directly** when hosted here.  
+The interactive world population map displays country populations on hover, based on dataset values up to 2022.
 
-This is why the map currently only displays the heading.  
+Important Note:
+Due to GitHub Pages and web security policies (CORS restrictions), the map cannot fetch external population and GeoJSON data files directly when hosted online.
 
-To view the full interactive map:  
-1. Download the repository and open `interactive_population.html` **locally** in a web browser.  
-2. This allows the browser to access the required data files without restrictions.  
+To view the full interactive map:
 
-Alternatively, a fully offline version with all country shapes and population data embedded can be created, but it results in a large HTML file (~3–6 MB), which may not be practical to host directly on GitHub Pages.
+Download the repository and open interactive_population.html locally in a web browser.
+
+This allows the browser to access the required data files without restrictions.
+
+Populations may not match exact official figures, but the map provides a representative view of global population distribution.
+
+A fully offline version embedding all country shapes and population data is possible, but it results in a large HTML file (~3–6 MB), which may not be practical for hosting.
 
 ## World Population Analysis
 
 ## Business Problem
 
 Understanding population growth and distribution is essential for planning in areas such as resource allocation, infrastructure development, and economic policy.
-The objective of this analysis is to explore global population trends over time and compare population sizes across regions and countries.
 
-This analysis aims to highlight growth patterns and regional differences that can inform long-term strategic planning and policy decisions.
+The objective of this analysis is to explore global population trends over time and compare population sizes across regions and countries. The analysis highlights growth patterns and regional differences that can inform long-term strategic planning and policy decisions.
 
 ## Dataset Description
 
-The dataset used in this project contains global population data for multiple countries across several years.
-
-Each record represents a country, with population figures recorded for different time periods.
+The dataset contains global population data for multiple countries, with the most recent values available up to 2022.
 
 ## Key features include:
 
 Country / Region
 
-Population counts by year
+Population counts by year (latest: 2022)
 
 Growth indicators
 
 Geographic classification
 
-The dataset enables comparison of population sizes and growth trends across countries and regions.
+Note: Some country populations may differ slightly from official 2022 estimates. The dataset provides a recent snapshot suitable for trend analysis and visualization.
 
-## Data Cleaning
+Data Cleaning
 
-Before analysis, the dataset was reviewed to ensure it was suitable for exploration and visualisation.
+Initial Inspection: Dataset structure, columns, and time-based variables were examined.
 
-1. Initial Inspection
+Data Readiness: No significant quality issues were observed; no records needed removal or transformation.
 
-The dataset was examined to understand its structure, columns, and time-based variables.
+Analysis Preparation: Data was used in its original form to preserve accuracy and consistency in trend analysis.
 
-2. Data Readiness
+## Exploratory Data Analysis (EDA)
 
-No significant data quality issues were observed during inspection. The dataset did not require removal of records or transformation prior to analysis.
+Examined population values across countries to identify most and least populated regions.
 
-3. Analysis Preparation
+Analysed trends over time to observe growth patterns.
 
-The data was used in its original form to preserve accuracy and consistency in population trend analysis.  
+Compared regions to highlight differences between continents and economic regions.
 
-## Exploratory Data Analysis
+Visual exploration identified countries with rapid growth versus more stable populations.
 
-Exploratory Data Analysis was carried out to understand global population trends and regional differences.
+## World Population Interactive Map
 
-Population values were examined across countries to identify the most and least populated regions.
-
-Trends over time were analysed to observe population growth patterns.
-
-Regional comparisons were made to highlight differences between continents and economic regions.
-Visual exploration helped identify countries with rapid growth versus more stable populations.# Navigate to your repo folder
-cd path/to/world-population
-
-
-# World Population Interactive Map
-
-This repository contains an **interactive world population map** built using **Leaflet.js** and **GeoJSON**.  
+This repository contains an interactive world population map built using Leaflet.js and GeoJSON.
 
 ## Features
-- Fully interactive: zoom, pan, and click on countries.  
-- Displays **all countries** on the map.  
-- Popups show **country names** (you can extend to include population or other data).  
-- Ready to showcase in a portfolio or personal project.  
 
-## How to view
-# 🌍 Interactive World Population Map
+Fully interactive: zoom, pan, and click on countries.
 
-Click below to explore the population of every country on an interactive map:
+Displays all countries.
 
-[View Map](https://www.mapsofworld.com/world-maps/world-population-map.html)
+Popups show country names (can be extended to include population or other data).
 
+Portfolio-ready project.
 
-This project contains interactive data visualisations exploring global population distribution.
+How to View
+Live Map Links
 
-### 🔗 Live Maps
-- **Main Map**  
-  👉 https://lizmtetwa.github.io/world-population/
+Main Map: View Here
 
-- **Alternative Map**  
-  👉 https://lizmtetwa.github.io/world-population/interactive_population.html<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>World Population Map</title>
-</head>
-<body>
-  <h1>Interactive World Population Map</h1>
-  <p><a href="./interactive_population.html">View Interactive Map</a></p>
-</body>
-</html>
-
-
-  
-
-
-- 
-
-
-
-[Interactive Population Map](interactive_population.html)  
-[Population Comparison Map (https://lizmtetwa.github.io/world-population/)
-- [Main Map](https://lizmtetwa.github.io/world-population/)
-- [Alternative Map](https://lizmtetwa.github.io/world-population/interactive_population.html)
-
-
-<script src="script.js"></script>
-
-<link rel="stylesheet" href="style.css">
-d3.json("data.json").then(...);
-
-- **Main Map**  
-  👉 https://lizmtetwa.github.io/world-population/
-
-- **Alternative Map**  
-  👉 https://lizmtetwa.github.io/world-population/interactive_population.html
-
-
-
-
-## Interactive Visualizations
-## 🌍 World Population Interactive Maps
-
-This project contains interactive data visualisations exploring global population distribution.
-
-https://lizmtetwa.github.io/world-population/
-
-
-
-### 🛠️ Tools & Technologies
-- HTML
-- JavaScript
-- Data Visualisation
-- GitHub Pages🌍 World Population Interactive Maps
-
-This project contains interactive data visualisations exploring global population distribution.
-
-🔗 Live Maps
-
-Main Map 👉 https://lizmtetwa.github.io/world-population/
-
-Alternative Map 👉 https://lizmtetwa.github.io/world-population/interactive_population.html
-
-🛠️ Tools & Technologies
-
-HTML
-
-JavaScript
-
-Data Visualisation
-
-GitHub Pages
-
-📂 Key Files
-
-index.html – Main interactive world population map
-
-interactive_population.html – Alternative interactive population visualisation
-
-
-
-- 🌍 Main World Population Map  
-  https://lizmtetwa.github.io/world-population/
-
-- 🌐 Alternative Interactive Population View  
-  https://lizmtetwa.github.io/world-population/interactive_population.html
-
-
-# World Population Analysis
-
-This project examines global population trends from 2015 to 2023, focusing on distribution, growth, and comparisons across key countries.
-
-The 2023 population distribution map highlights regions with the largest populations, while trends from 2015–2023 reveal shifts in density, especially in Asia and Africa. A dedicated visualization of Europe’s population shows steady growth with country-level differences, reflecting demographic stability and aging populations.
-
-Comparisons across China, India, Indonesia, Nigeria, and the United States illustrate varying growth rates. India and Nigeria show rapid increases, China and the US display slower growth, and Indonesia demonstrates moderate, steady growth.
-
-Two interactive maps allow users to explore data dynamically-zooming, filtering, and viewing statistics by region-adding engagement and depth beyond static visualizations.
-
----
+For full functionality, you can also download interactive_population.html and open it locally.
 
 ## Key Insights
 
-- **Asia and Africa dominate global population growth**, with India and Nigeria showing the fastest increases.  
-- **Europe’s growth is modest**, with some countries experiencing population decline due to aging populations.  
-- **Population trends influence economics, infrastructure, and resource planning**, highlighting regions that may face demographic pressures or opportunities.  
-- Interactive maps provide a detailed, user-driven exploration of data, helping identify patterns not easily seen in static charts.
+Asia and Africa dominate global population growth, with India and Nigeria showing the fastest increases.
+
+Europe’s growth is modest, with some countries experiencing population decline due to aging populations.
+
+Population trends influence economics, infrastructure, and resource planning, highlighting regions that may face demographic pressures or opportunities.
+
+Interactive maps provide user-driven exploration, helping identify patterns not easily seen in static charts.
 
 ## Technologies Used
-Python
-Pandas, NumPy for data manipulation
-Matplotlib, Seaborn for visualization
-Jupyter Notebook for analysis
-Tableue
-Excel
 
+Python: Pandas, NumPy for data manipulation
+
+## Visualization: Matplotlib, Seaborn, Tableau
+
+Analysis Environment: Jupyter Notebook
+
+## Other Tools: Excel
+
+Web Visualization: HTML, JavaScript, Leaflet.js
+
+Deployment: GitHub Pages
+
+Project Structure / Key Files
+
+index.html – Main interactive world population map
+
+interactive_population.html – Alternative interactive population visualization
 
 ## Conclusion
 
-This analysis demonstrates the value of combining **static visualizations and interactive tools** to understand population dynamics. By examining temporal and regional trends, the project provides actionable insights into demographic growth, density, and comparative country-level patterns. It is a portfolio-ready example of how data visualization can convey complex information clearly and effectively.
+This project demonstrates the value of combining static visualizations and interactive tools to understand population dynamics. By examining temporal and regional trends, the analysis provides actionable insights into demographic growth, density, and comparative country-level patterns.
+
+It is a portfolio-ready example of how data visualization can convey complex information clearly and effectively.
+
 
