@@ -51,45 +51,21 @@
     "South Africa": "60 million",
     "Zimbabwe": "16 million"
   };
+function onEachFeature(feature, layer) {
+  const country = feature.properties.name;
+  const population = populationData[country];
 
-  function getColor(pop) {
-    if (!pop) return "#ccc";
-    var n = pop.replace(/[^0-9]/g, '');
-    n = parseInt(n);
-    if (pop.includes("billion")) n *= 1000;
+  let popupContent = `<strong>${country}</strong><br>`;
 
-    if (n > 500) return "#4B0082";
-    else if (n > 200) return "#6A0DAD";
-    else if (n > 100) return "#2E8B57";
-    else if (n > 50) return "#3CB371";
-    else if (n > 20) return "#20B2AA";
-    else if (n > 10) return "#00CED1";
-    else if (n > 1) return "#87CEFA";
-    else return "#E0FFFF";
+  if (population) {
+    popupContent += `Population: ${population.toLocaleString()}`;
+  } else {
+    popupContent += `Population: Data not available`;
   }
 
-  fetch("https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json")
-    .then(res => res.json())
-    .then(data => {
-      L.geoJSON(data, {
-        style: function(feature) {
-          var name = feature.properties.name;
-          var pop = populationData[name];
-          return {
-            color: "#555",
-            weight: 1,
-            fillColor: getColor(pop),
-            fillOpacity: 0.7
-          };
-        },
-        onEachFeature: function(feature, layer) {
-          var name = feature.properties.name;
-          var pop = populationData[name] || "Population data not available";
-          layer.bindPopup("<strong>" + name + "</strong><br>Population: " + pop);
-        }
-      }).addTo(map);
-    });
-</script>
+  layer.bindTooltip(popupContent, {
+    sticky: true
+  });
+}
 
-</body>
-</html>
+ 
