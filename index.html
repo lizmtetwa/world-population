@@ -16,3 +16,14 @@ function getColor(pop) {
   else return "#E0FFFF";               // very light blue
 }
 
+style: function(feature) {
+    var name = feature.properties.name;
+    var pop = populationData[name] || "Population data not available";
+    return {
+      color: "#555",
+      weight: 1,
+      fillColor: getColor(pop),
+      fillOpacity: 0.7
+    };
+}
+Update interactive world population map with colors
