@@ -1,29 +1,95 @@
-Add full interactive world population map with all countries
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>World Population Interactive Map</title>
 
-function getColor(pop) {
-  if (!pop || pop === "Population data not available") return "#ccc"; // grey if missing
-  var n = pop.replace(/[^0-9]/g, ''); // remove letters
-  n = parseInt(n); 
-  if (pop.includes("billion")) n *= 1000; // convert billion -> million
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
 
-  if (n > 500) return "#4B0082";       // deep purple
-  else if (n > 200) return "#6A0DAD";  // purple
-  else if (n > 100) return "#2E8B57";  // dark green
-  else if (n > 50) return "#3CB371";   // medium green
-  else if (n > 20) return "#20B2AA";   // teal
-  else if (n > 10) return "#00CED1";   // cyan
-  else if (n > 1) return "#87CEFA";    // light blue
-  else return "#E0FFFF";               // very light blue
-}
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; }
+    h1 { text-align: center; padding: 10px; }
+    #map { height: 90vh; width: 100%; }
+  </style>
+</head>
 
-style: function(feature) {
-    var name = feature.properties.name;
-    var pop = populationData[name] || "Population data not available";
-    return {
-      color: "#555",
-      weight: 1,
-      fillColor: getColor(pop),
-      fillOpacity: 0.7
-    };
-}
-Update interactive world population map with colors
+<body>
+
+<h1>World Population Interactive Map</h1>
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+  var map = L.map('map').setView([20, 0], 2);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
+
+  var populationData = {
+    "China": "1.41 billion",
+    "India": "1.43 billion",
+    "United States of America": "339 million",
+    "Indonesia": "277 million",
+    "Pakistan": "241 million",
+    "Brazil": "216 million",
+    "Nigeria": "227 million",
+    "Bangladesh": "173 million",
+    "Russia": "146 million",
+    "Mexico": "129 million",
+    "Japan": "124 million",
+    "Ethiopia": "126 million",
+    "Philippines": "117 million",
+    "Egypt": "112 million",
+    "United Kingdom": "67 million",
+    "Germany": "84 million",
+    "France": "65 million",
+    "South Africa": "60 million",
+    "Zimbabwe": "16 million"
+  };
+
+  function getColor(pop) {
+    if (!pop) return "#ccc";
+    var n = pop.replace(/[^0-9]/g, '');
+    n = parseInt(n);
+    if (pop.includes("billion")) n *= 1000;
+
+    if (n > 500) return "#4B0082";
+    else if (n > 200) return "#6A0DAD";
+    else if (n > 100) return "#2E8B57";
+    else if (n > 50) return "#3CB371";
+    else if (n > 20) return "#20B2AA";
+    else if (n > 10) return "#00CED1";
+    else if (n > 1) return "#87CEFA";
+    else return "#E0FFFF";
+  }
+
+  fetch("https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json")
+    .then(res => res.json())
+    .then(data => {
+      L.geoJSON(data, {
+        style: function(feature) {
+          var name = feature.properties.name;
+          var pop = populationData[name];
+          return {
+            color: "#555",
+            weight: 1,
+            fillColor: getColor(pop),
+            fillOpacity: 0.7
+          };
+        },
+        onEachFeature: function(feature, layer) {
+          var name = feature.properties.name;
+          var pop = populationData[name] || "Population data not available";
+          layer.bindPopup("<strong>" + name + "</strong><br>Population: " + pop);
+        }
+      }).addTo(map);
+    });
+</script>
+
+</body>
+</html>
