@@ -11,9 +11,9 @@ Due to GitHub Pages and web security policies (CORS restrictions), the map canno
 
 To view the full interactive map:
 
-Download the repository and open interactive_population.html locally in a web browser.
+I downloaded the repository and opened interactive_population.html locally in a web browser.
 
-This allows the browser to access the required data files without restrictions.
+This allowed the browser to access the required data files without restrictions.
 
 Populations may not match exact official figures, but the map provides a representative view of global population distribution.
 
@@ -43,7 +43,7 @@ Geographic classification
 
 Note: Some country populations may differ slightly from official 2022 estimates. The dataset provides a recent snapshot suitable for trend analysis and visualization.
 
-Data Cleaning
+## Data Cleaning
 
 Initial Inspection: Dataset structure, columns, and time-based variables were examined.
 
