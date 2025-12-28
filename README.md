@@ -83,32 +83,12 @@ This repository contains an **interactive world population map** built using **L
 - Ready to showcase in a portfolio or personal project.  
 
 ## How to view
-Open the GitHub Pages link for this repository:  
-[https://lizmtetwa.github.io/world-population/](https://lizmtetwa.github.io/world-population/)
+# 🌍 Interactive World Population Map
 
-## How it works
-- The map uses **Leaflet.js** for rendering.  
-- Countries are loaded via a **GeoJSON file**.  
-- Popups are created dynamically for each country.
-- 
-https://lizmtetwa.github.io/world-population/
+Click below to explore the population of every country on an interactive map:
 
+[View Map](https://www.mapsofworld.com/world-maps/world-population-map.html)
 
-
-
-### Population Distribution (2023)
-![Population Distribution](population_distribution_2023.png)
-
-### Population Growth in Europe
-![Population Growth Europe](population_growth_europe.png)
-
-### Population Comparison: Selected Countries
-![Population Comparison](population_comparison_countries.png)
-
-my-repo/
-│── README.md
-    - [Main Map](https://lizmtetwa.github.io/world-population/)
-    - [Alternative Map](https://lizmtetwa.github.io/world-population/interactive_population.html)
 
 This project contains interactive data visualisations exploring global population distribution.
 
