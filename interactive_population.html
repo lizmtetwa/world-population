@@ -3,114 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <title>World Population Map</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.5/dist/leaflet.css"/>
 <style>
-  body { margin:0; padding:0; }
-  #map { width: 100%; height: 90vh; }
-  h1 { text-align: center; margin: 10px; }
-  .info {
-    padding: 6px 8px;
-    background: white;
-    background: rgba(255,255,255,0.8);
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    border-radius: 5px;
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f0f0f0;
+  }
+  h1 {
+    margin: 20px 0;
+  }
+  iframe {
+    border: none;
+    width: 100%;
+    height: 80vh;
   }
 </style>
 </head>
 <body>
-<h1>World Population Map</h1>
-<div id="map"></div>
 
-<script src="https://unpkg.com/leaflet@1.9.5/dist/leaflet.js"></script>
-<script>
-// Initialize map
-const map = L.map('map').setView([20, 0], 2);
+<h1>Interactive World Population Map</h1>
 
-// Add OSM tiles
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19,
-  attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
+<!-- Embed the interactive map -->
+<iframe 
+    src="https://www.mapsofworld.com/world-maps/world-population-map.html" 
+    title="World Population Map">
+</iframe>
 
-// Info box
-const info = L.control();
-info.onAdd = function() {
-  this._div = L.DomUtil.create('div', 'info');
-  this.update();
-  return this._div;
-};
-info.update = function(props) {
-  this._div.innerHTML = props ?
-    `<b>${props.name}</b><br>Population: ${props.population.toLocaleString()}` :
-    'Hover over a country';
-};
-info.addTo(map);
-
-// Color scale
-function getColor(pop) {
-  return pop > 1000000000 ? '#4B0082' :
-         pop > 500000000  ? '#6A0DAD' :
-         pop > 200000000  ? '#8A2BE2' :
-         pop > 100000000  ? '#9370DB' :
-         pop > 50000000   ? '#BA55D3' :
-         pop > 10000000   ? '#DA70D6' :
-                            '#E6E6FA';
-}
-function style(feature) {
-  return {
-    fillColor: getColor(feature.properties.population || 0),
-    weight: 1,
-    color: 'white',
-    dashArray: '2',
-    fillOpacity: 0.7
-  };
-}
-function highlightFeature(e) {
-  const layer = e.target;
-  layer.setStyle({weight: 2, color: '#666', fillOpacity: 0.9});
-  info.update(layer.feature.properties);
-}
-function resetHighlight(e) {
-  geojson.resetStyle(e.target);
-  info.update();
-}
-function onEachFeature(feature, layer) {
-  layer.on({mouseover: highlightFeature, mouseout: resetHighlight});
-}
-
-// Minimal population dataset (you can expand)
-const populationData = {
-  "Afghanistan": 42500000,
-  "Albania": 2900000,
-  "Algeria": 44900000,
-  "Angola": 36000000,
-  "Argentina": 46000000,
-  "Australia": 26000000,
-  "Austria": 9000000,
-  "Belgium": 11500000,
-  "Brazil": 217000000,
-  "Canada": 39000000,
-  "China": 1415000000,
-  "France": 68000000,
-  "Germany": 84000000,
-  "India": 1412000000,
-  "Japan": 123000000,
-  "Russia": 144000000,
-  "United States": 338000000,
-  "Zimbabwe": 16000000
-};
-
-// Fetch full world GeoJSON from GitHub and attach population
-fetch('https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json')
-.then(res => res.json())
-.then(data => {
-  data.features.forEach(f => {
-    f.properties.population = populationData[f.properties.name] || 0;
-  });
-  geojson = L.geoJson(data, {style: style, onEachFeature: onEachFeature}).addTo(map);
-})
-.catch(err => alert("Failed to load map. Make sure you are online."));
-</script>
 </body>
 </html>
-
