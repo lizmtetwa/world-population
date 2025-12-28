@@ -73,7 +73,9 @@ Open the GitHub Pages link for this repository:
 ## How it works
 - The map uses **Leaflet.js** for rendering.  
 - Countries are loaded via a **GeoJSON file**.  
-- Popups are created dynamically for each country.  
+- Popups are created dynamically for each country.
+- 
+https://lizmtetwa.github.io/world-population/
 
 
 
